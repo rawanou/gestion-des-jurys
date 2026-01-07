@@ -1,0 +1,51 @@
+<odoo>
+
+    <!-- Liste des jurys -->
+    <record id="view_jury_tree" model="ir.ui.view">
+        <field name="name">gestion.jury.tree</field>
+        <field name="model">gestion.jury</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="academic_year"/>
+                <field name="session_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Formulaire jury -->
+    <record id="view_jury_form" model="ir.ui.view">
+        <field name="name">gestion.jury.form</field>
+        <field name="model">gestion.jury</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="academic_year"/>
+                        <field name="session_date"/>
+                        <field name="state"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_gestion_jury" model="ir.actions.act_window">
+        <field name="name">Jurys</field>
+        <field name="res_model">gestion.jury</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_gestion_jurys_root"
+              name="Gestion des Jurys"/>
+
+    <menuitem id="menu_gestion_jurys"
+              name="Jurys et décisions"
+              parent="menu_gestion_jurys_root"
+              action="action_gestion_jury"/>
+
+</odoo>
